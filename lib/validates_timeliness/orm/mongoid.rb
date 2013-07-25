@@ -23,7 +23,7 @@ module ValidatesTimeliness
             Date => :date,
             Time => :time,
             DateTime => :datetime
-          }[fields[database_field_name(attr_name)].type] || :datetime
+          }[fields[database_field_name(attr_name)].try(:type)] || :datetime
         end
 
         protected
